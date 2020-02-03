@@ -5,17 +5,22 @@ insert into test_field
 values (1, 'Pi', 'circumference/diameter', 'Constant');
 */
 
-/*
-update master.sa.test_field
-	set column3 = 'Circumference/Diameter'
-	where column2 = 'Pi'
-*/
+
+
+update test_field
+	set column3 = 'test'
+	
+	
+
 	
 select @@version;
 select * from test_field;
 
+/*determine default db and user*/
 select sp.name,
 	sp.default_database_name
 	from sys.server_principals sp
 	where sp.name = SUSER_SNAME();
+
+/*find types for columns*/
 /*select * from information_schema.columns;*/
