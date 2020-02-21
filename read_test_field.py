@@ -1,12 +1,12 @@
 import pyodbc
-conn = pyodbc.connect('Driver=SQL Server;'
+conn = pyodbc.connect('Driver={SQL Server};'
                       'Server=DESKTOP-MPF2K2N\TESTDB;'
-                      'Database=master;'
+                      'Database=tempdb;'
                       'Trusted_Connection=yes;'
                       )
 
-cursor = conn.execute('select * from master.dbo.test_field')
-cursor.execute()
+cursor = conn.cursor()
+cursor.execute('select * from tempdb.dbo.test_field')
 
 for row in cursor:
     print(row)
